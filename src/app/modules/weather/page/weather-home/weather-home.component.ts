@@ -1,3 +1,4 @@
+import { WeatherService } from './../../services/weather.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class WeatherHomeComponent {
 
+  constructor(private WeatherService: WeatherService){}
 }
