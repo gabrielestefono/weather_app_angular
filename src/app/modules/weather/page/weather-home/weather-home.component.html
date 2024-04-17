@@ -6,4 +6,5 @@
       size="lg" class="search-icon" [icon]="searchIcon"></fa-icon>
     </span>
   </form>
+  <app-weather-card *ngIf="weatherData" [weatherDataInput]="weatherData"></app-weather-card>
 </div>
