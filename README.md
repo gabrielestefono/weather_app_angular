@@ -35,3 +35,7 @@ Para executar este projeto localmente, siga estas etapas:
 ## Estrutura do Repositório
 
 Este repositório é parte de uma coleção maior que inclui vários projetos relacionados ao curso. Cada subdiretório representa um projeto individual.
+
+## Imagem do Projeto:
+
+![alt text](image.png)
