@@ -1,1 +1,52 @@
-<p>weather-card works!</p>
+<div class="container" *ngIf="weatherDataInput">
+  <div class="upper-data">
+    <img src="../../../../../assets/sun.jpg" alt="asdsadsadasdsadsa" *ngIf="weatherDataInput.main.temp > 15">
+    <img src="../../../../../assets/cold1.jpg" alt="asdsadsadasdsadsa" *ngIf="weatherDataInput.main.temp <= 15">
+    <img src="../../../../../assets/cold2.jpg" alt="asdsadsadasdsadsa" *ngIf="weatherDataInput.main.temp < 0">
+    <div class="weather-data">
+      <div class="location">{{weatherDataInput.name}}</div>
+      <div class="temperature">{{weatherDataInput.main.temp | number: "1.0-0"}}ºC</div>
+    </div>
+  </div>
+  <div class="lower-data">
+    <div class="more-info-label">Mais informações</div>
+    <div class="more-info-container">
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="minTemperaturaIcon"></fa-icon>
+          <span>Mínima</span>
+        </div>
+        <div class="info-block-value">
+          {{weatherDataInput.main.temp_min | number: "1.0-0"}}ºC
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="maxTemperaturaIcon"></fa-icon>
+          <span>Máxima</span>
+        </div>
+        <div class="info-block-value">
+          {{weatherDataInput.main.temp_max| number: "1.0-0"}}ºC
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="humidadeIcon"></fa-icon>
+          <span>Umidade</span>
+        </div>
+        <div class="info-block-value">
+          {{weatherDataInput.main.humidity}}%
+        </div>
+      </div>
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="vento"></fa-icon>
+          <span>Vento</span>
+        </div>
+        <div class="info-block-value">
+          {{weatherDataInput.wind.speed}} km/h
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

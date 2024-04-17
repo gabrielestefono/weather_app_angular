@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
 import { WeatherData } from 'src/app/modules/models/interfaces/weather.interface';
 import { Subject, takeUntil } from 'rxjs';
@@ -9,12 +9,16 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './weather-home.component.html',
   styleUrls: []
 })
-export class WeatherHomeComponent implements OnDestroy{
+export class WeatherHomeComponent implements OnInit, OnDestroy{
   private readonly destroy$: Subject<void> = new Subject();
   constructor(private weatherService: WeatherService){}
   public weatherData!: WeatherData;
   public inicialCityName: string = "Cascavel";
   public searchIcon = faMagnifyingGlass;
+
+  ngOnInit(): void {
+    this.getWeatherData('Cascavel');
+  }
 
   getWeatherData(cidade: string): void
   {
@@ -25,6 +29,7 @@ export class WeatherHomeComponent implements OnDestroy{
     .subscribe({
       next: (response) => {
         response && (this.weatherData = response);
+        console.log(this.weatherData)
       },
       error: (error) => console.log(error)
     })

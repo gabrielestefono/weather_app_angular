@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { faDroplet, faTemperatureHigh, faTemperatureLow, faWind } from '@fortawesome/free-solid-svg-icons';
 import { WeatherData } from 'src/app/modules/models/interfaces/weather.interface';
 
 @Component({
@@ -6,11 +7,11 @@ import { WeatherData } from 'src/app/modules/models/interfaces/weather.interface
   templateUrl: './weather-card.component.html',
   styleUrls: []
 })
-export class WeatherCardComponent implements OnInit{
+export class WeatherCardComponent{
   @Input() weatherDataInput!: WeatherData;
 
-  ngOnInit(): void {
-    console.log("Dados recebidos do componente pai.Weather card!");
-    console.log(this.weatherDataInput);
-  }
+  minTemperaturaIcon = faTemperatureLow;
+  maxTemperaturaIcon = faTemperatureHigh;
+  humidadeIcon = faDroplet;
+  vento = faWind;
 }
